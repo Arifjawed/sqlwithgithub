@@ -1,0 +1,39 @@
+Git?
+Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+Branch : by default master hoti hai branch
+commands
+git status :::  It lets you see which changes have been staged, which haven't, and which files aren't being tracked by Git.
+
+git init :: for initiliazing if u run this command its create repository of your folder
+git status :: it will show u have not untracked filed yet 
+git add --a :: it will track your all files and add all files in repository .all file staching
+git status :: now my all files tracked now we have to commit this files
+git commit -m "initial commit" :: now it will show me all clear 
+git log :: for all your commits file 
+git add filename.txt  ::: this is for one file add with name after it you hv to commit
+rm -rf git  :: its for deleting your repository folder  
+now condition changed:
+lets support i have 3 files which i had commited but after sometime i had changed some things in my files i.e i added one or two lines in my notepad file and excel file 
+then i checked and wrote ::Git status:: it will show me two files is not commited becuase some changes happend in repository so i want just do to one file commit which is notepad not second one excel file so i have to write this command:: git add filename.txt    
+:: then i write a command ::git status :: it will show me that you added one file but commit and second file not added yet which is excel 
+command for commit first file :: git commit -m "changed first.txt and better design"
+
+
+clone copy any website
+it work same as repository commands its mean you download all files of this 
+
+
+git clone pastclone ::: yahan sare clone k objects ajaegen 
+pwd :: (present work directory) it shows where you stand right now
+ls ::  (list contend) it shows  directory`s content means all things of directory
+cd tensorflow:: (changed directory)
+pwd :: it show now tensorflow directory folder where u stand 
+
+gitignore:
+touch error.log :: it will create a file in your repository but sometime you have many that kind of files that is not useful for your project n not also you change so if u want ifnore those file just create gitignore file copy that error.log file and past into gitignore file then it will not show you track file weather you change or not in this error.log filep
+touch .gitignore :: it  create a file for ignoring file incase many files are with same name so you have to do when u past error.log file name but u want all file ignore which name start error.log just type *error.log in ignore file (2) if you want directory ignore just type {nextline come then type :: dir/} 
+
+git checkout -- first.txt :: you modified ur file text but u wana bring again ur text file u hve to do unmodify
+git checkout -f:: it use for all unmodify file text
+

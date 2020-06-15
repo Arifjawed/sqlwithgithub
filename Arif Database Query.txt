@@ -1,0 +1,91 @@
+when create database 2 files get generated .mdf(data file ,contain actual data), .ldf(transaction log file ,use to recover the  database)
+ALTER
+alter table stu2  add lastname nvarchar(20)//add column
+ALTER TABLE stu2 DROP COLUMN lastname // drop column name in a table
+alter database databasename modify name= newdatabasename
+(constraint)
+create table stu1( id int identity(1,1),SALARY DECIMAL (18, 2) DEFAULT 5000.00) //set defualt value direct whiling create the table
+-alter table stu1 add constraint df_stu1_age default 21 for age //for by default set a column for value but  when u insert a record that time not work default .
+-alter table stu1 drop constraint df_stu1_age//drop the constraint
+
+-alter table stu2 add constraint ck_stu2_age check (age >0 and age<18) //l restric karte hain user ko age wo negative na dale
+IDENTITY,,,
+-create table stu2(id int identity(1,1) primary key not null);// ye identity automatcaly id (1,1) hogi insert ni karegen id men 
+the above example demonstrate the identity work and it has two parameter one shows the increament and others one show the your start number where you wana start the number ,i.e 1 no ka increament ho or 1 se hi start ho  jb second id ayegi us ka identi automactically 2 hogi 
+Insert..
+insert into stu2 (id,name,age) values (3,'java2' ,8)//mid me value insert kar rha hia
+-set identity_insert stu2 on///
+dbcc checkident(stu2 ,reseed ,0)// ye use hota hai pore indenty k table ko new k lie warna delet karne pe identity chalti rehti hai,,,
+select SCOPE_IDENTITY() // for last insert id
+
+alter table stu2 add constraint uq_stu2_name unique (name) //  unique constraint kise bi column ko unique banata hai ek ya ek se ziada unique key hote hain or primary key srif ek hi hota hai.....
+....
+HAVING: //data ko filter karne k kaam ata hai 
+order by// data ko acciding/dec order me lata hai
+group by// ye aggregate function k lie use hota hai like count ,sum,avg
+..
+    (select)
+-select *from stu2 where age in (3,6,9) //ye 3,6,9 wale bunde lekar ayega jin k age ye hogi
+-select *from stu2 where age between 10 and 20
+-like 'a%' //start me jitne a se name start hoge wo lekar ayega
+-Like ' %a' //last me jitne hoge wo lekar ayega
+-not like '% a% '// jo A se start na ho wo name lekar ayega
+-select *from stu2 where name like'[am]%' //ye a or m se jitne bi name start hogen unko retrive kar k laega
+-like'[^am]%' //cap represnt here for not mean not start a and m letteres
+select top 1 *from stu2 order by age desc // top one ka record lekar ayega according to column name
+select *from stu2 order by name desc ,age asc // ye multiple k lie hai 
+select id,coalesce(fname,midlename,age ) as name from stu3//ye first null value lekar ayega by default asscending order men 
+-select name, isnull(salary,0) as student from stu3 //ye bi null value ko lata hai top pr ye function kheilata hai
+UNION
+union and union all // (union) jo hai donu table k record ko lekar ata hai lakin repeatation value ni lata.. repetation value mean all value (union all) lata hai
+storeprocedure..... /// it use for programme security 
+//create proc sptable
+as 
+begin
+
+select id,name from stu2
+
+end// this is storprocedure  definition and u find the programability folder jahan create hota hai storeprocdure..
+sp_helptext sptable// show the text of storprocedure 
+select ASCII('A') // its convert charater into ascii code the asnwer is = 65
+select char(65) //its convert the ascci code into character answer is =A
+........Alphabet print all A to Z capital
+declare @start int 
+set @start =65
+while(@start<=90)
+begin
+print char(@start)
+set @start=@start+1
+end.................................
+select GETDATE()// show the date and time also milli second
+select power(2,3) // they are math function 
+select CEILING(12.2)// its ans 13
+select FLOOR(12.2)// its ans 12
+select SQUARE(12)// ans 144
+select SQRt(16)// ans is 4
+select RAND()// its show random number
+index.............
+ index use by queries to find data quickly .
+ //ye salary column ko accending order me kardega hamesha k lie oder by tempory karta hai 
+ // create table id is a clustered index  because primary key constrain by default called clustered index or hm jo bi record insert kargen wo accending oder me hoga khud pe khud//nichay k lie hai ye query
+create index Idxtest2 on stu2(salary asc)
+create table [arif]
+(
+ [id] int primary key,[name] nvarchar(20),gendar nvarchar(20)
+)// user id order me ni dale lakin jb hm record ko search karge ye automatcaly acending order me hoga clustered index ki waja se jo hmne table clustrd index create kia hai....
+clustered composite index ..// clustered index ek table me ek hi hota hai lakin column index ek se ziada hosakte hain..
+create clustered index idx_name on stu2(gendar acs,salary dsc);
+difrence b/w clustered and nonclustered index
+1.clustered index is fast than nonclustered
+2.clustered index one but nonclustered index more than one
+3.clustered no requierd additional sapce but nonclustered index required
+view................................................. // it is called virtual table
+
+Column data type change by query
+(alter table tablename 
+alter column salary int ) //ye hai column ki data type change karne ka tareeka
+triger.............................
+special kind of stor procedure
+joins..................
+normlization...............................
+subquery......... //this is same as join jo ans subquery se ata hai wo hm join se b lasakte hai donu same time legen.
