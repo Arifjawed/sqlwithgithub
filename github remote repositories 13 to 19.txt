@@ -1,0 +1,34 @@
+  push : agr ap apna project github or remote repository pe dalte ho tu push karna parta hai
+  pull : agr ap apna ya kise ka project apne computer per download karna chate ho thorugh github tu ap pull karte ho
+
+ git remote add origin https://github.com/Arifjawed/sqlwithgithub.git (shft+insert) // it create a remote for  
+git remote -v :: it show u a remote which name is origin it ask push or pull
+
+git push -f origin master :: it push your code on  your repository of github
+
+case1:
+if you want to add one or more file in your repository of remote so copy and past into your computer repository folder then :: git add . :: then :: git commit -m "my new file added ::like.txt" :: then push my file remote repositry ::git push -f or -u origin master :: it will create another file on remote repository
+
+Git alias 14tutorl...//you want to write command in short way u have to use it 
+let suppose i write ::git st:: instead of ::git status:: so first of all i run a command to tell git
+ ::git config --global alias.st status :: now my command ready to run just type :git st: it show my status
+also you you can use just s for status if you define in alias.s status its up to you
+
+Branches.....
+git checkout -b developer :://it cmnd change master branch to developer branch 
+git checkout master :://it come again master branch
+git checkout developer :://it will come again its developer branch
+git branch::// for checking how many branch you have created
+
+git marge developer:: //for marging developer branch into master branch 
+git add.::
+git commit :// it will show a window and write (press esc then write( :wq)) //after this it marged 
+git branch -d developer :://it is for Delete branch its show error then type again command
+git branch -D developer:: //finally deleting ur branch 
+git branch -v:// it show all branches last commit
+git branch --merged :: //it will show you how many branches marged in master
+git branch --no-merged::// it will show u how many branches did not marged yet in master
+
+
+
+
